@@ -21,7 +21,7 @@ const GestionCandidatoScreen = ({ navigation }) => {
   useEffect(() => {
     fetchCandidatos();
   }, []);
-
+//consultas.
   const fetchCandidatos = async () => {
     try {
       const querySnapshot = await getDocs(collection(db, 'candidatos'));
@@ -34,7 +34,7 @@ const GestionCandidatoScreen = ({ navigation }) => {
       console.log('Error al obtener candidatos:', error);
     }
   };
-
+//eliminar.
   const handleDelete = async (id) => {
     try {
       await deleteDoc(doc(db, 'candidatos', id));
@@ -46,6 +46,17 @@ const GestionCandidatoScreen = ({ navigation }) => {
   };
 
   const handleUpdate = async () => {
+    // Validación: Verificar que no haya campos vacíos
+    if (
+      !selectedCandidato?.nombre ||
+      !selectedCandidato?.email ||
+      !selectedCandidato?.telefono ||
+      !selectedCandidato?.direccion
+    ) {
+      Alert.alert('Error', 'Todos los campos son obligatorios. Por favor, completa todos los datos antes de guardar.');
+      return;
+    }
+
     try {
       const candidatoRef = doc(db, 'candidatos', selectedCandidato.id);
       await updateDoc(candidatoRef, selectedCandidato);
@@ -439,6 +450,5 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
 });
-
 
 export default GestionCandidatoScreen;

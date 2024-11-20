@@ -12,7 +12,7 @@ const EstadisticasScreen = () => {
     datasets: [{ data: [0, 0] }],
   });
   const [isRefreshing, setIsRefreshing] = useState(false);
-
+//datos de coleccion.
   const fetchData = async () => {
     try {
       const unsubscribe = onSnapshot(collection(db, 'vacantes'), (snapshot) => {

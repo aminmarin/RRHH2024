@@ -28,7 +28,7 @@ const CatalogoVacantesScreen = ({ navigation }) => {
       ),
     });
   }, [navigation]);
-
+//llamdo base datos.
   const fetchVacantes = async () => {
     setLoading(true); // Mostrar el indicador de carga
     try {
@@ -44,7 +44,7 @@ const CatalogoVacantesScreen = ({ navigation }) => {
       setLoading(false); // Ocultar el indicador de carga
     }
   };
-
+//valdidacion.
   const handleDeleteVacante = async (id) => {
     Alert.alert(
       'Confirmación',

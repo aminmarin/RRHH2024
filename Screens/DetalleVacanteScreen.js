@@ -66,7 +66,7 @@ const DetalleVacanteScreen = ({ route, navigation }) => {
       console.error('Error al obtener candidatos:', error);
     }
   };
-
+//Actualizar el estado de la vacante.
   const toggleDisponibilidad = async () => {
     const nuevoEstado = estado === 'Disponible' ? 'No Disponible' : 'Disponible';
 
